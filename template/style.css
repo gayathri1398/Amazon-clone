@@ -28,3 +28,57 @@ main{
     grid-area: main;
     padding: 1rem;
 }
+footer{
+    grid-area: footer;
+    background-color: #203040;
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 12px;
+
+}
+a{
+    text-decoration: none;
+}
+header a{
+    color: #fff;
+  
+}
+header a:hover{
+    color: orange;
+}
+.brand{
+    font-size: 32px;
+    color: #fff !important;
+}
+.nav{
+    display: flex;
+    gap: 20px;
+   
+}
+.full_card{
+    border:1px solid rgb(187, 187, 187);
+    border-radius: 3px;
+    padding: 2px;
+    
+}
+img.card_image{
+    max-width: 29rem;
+    width: 100%;
+}
+.product{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    
+
+}
+span i{
+    color: orange;
+}
