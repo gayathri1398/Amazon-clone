@@ -8,19 +8,23 @@ const ProductCard = () => {
         console.log(newRating);
       };
 
-
     return (
-        <div className=''>
-            <img src={image} alt="product"  />
-             <h2>Nike shirts</h2>
+        <div className='w-60 border-2 border-grey-300 rounded-md mb-8'>
+           <div className='w-full h-80 object-cover'>
+           <img src={image}
+             alt="product" 
+             className='w-full h-full rounded-t-md' />
+           </div>
+            <div className='p-2'>
+            <h2 className='mt-2 font-light text-xl'>Nike shirts</h2>
              <ReactStars
                     count={5}
                     onChange={ratingChanged}
                     size={24}
                     activeColor="#ffd700"
                 />
-             <p>$120</p>
-
+             <p className='font-bold'>$120</p>
+            </div>
         </div>
     )
 }
