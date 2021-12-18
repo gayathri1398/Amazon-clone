@@ -4,7 +4,7 @@ import React from 'react';
 //components
 import Navbar from '../components/navbar';
 
-const HomeLayout=()=>{
+const HomeLayout=(props)=>{
     return <>
      <Navbar/>
      {props.children}
