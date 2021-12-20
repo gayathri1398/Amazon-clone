@@ -2,16 +2,15 @@ import React from 'react';
 import ReactStars from "react-rating-stars-component";
 // import image from '../images/images.jpg';
 
-// components
-import data from '../data';
 
-const ProductCard = () => {
+
+const ProductCard = ({product}) => {
       const ratingChanged=(newRating)=>{
         console.log(newRating);
       };
 
     return <>
-      {data.products.map((product)=>(
+    
         <div className='w-60 border-2 border-grey-300 rounded-md mb-8'>
         <div className='w-full h-80 object-cover'>
         <img src={product.image}
@@ -29,7 +28,7 @@ const ProductCard = () => {
           <p className='font-bold'>{`${product.price}`}</p>
          </div>
      </div>
-      ))}
+      
        
     </>
 }
