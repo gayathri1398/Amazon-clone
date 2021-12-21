@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactStars from "react-rating-stars-component";
-// import image from '../images/images.jpg';
-
+import {Link} from 'react-router-dom'
 
 
 const ProductCard = ({product}) => {
@@ -10,7 +9,7 @@ const ProductCard = ({product}) => {
       };
 
     return <>
-    
+       <Link to={`/product/${product._id}`}>
         <div className='w-60 border-2 border-grey-300 rounded-md mb-8'>
         <div className='w-full h-80 object-cover'>
         <img src={product.image}
@@ -28,7 +27,7 @@ const ProductCard = ({product}) => {
           <p className='font-bold'>{`${product.price}`}</p>
          </div>
      </div>
-      
+     </Link>
        
     </>
 }

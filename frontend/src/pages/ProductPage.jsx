@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import Rating from 'react-rating-stars-component'
 
 const ProductPage=()=>{
@@ -7,8 +8,9 @@ const ratingChanged=(newRating)=>{
 }
 
     return<>
-       <div className='flex flex-col gap-5 w-full h-full px-4 lg:flex-row mt-8 flex-start justify-around'>
-           <div className='lg:w-2/5' >
+        <Link to ="/" className='text-gray-500 hover:text-indigo-900'>Back to results</Link>
+       <div className='flex flex-col gap-4 w-full h-full px-4 lg:flex-row mt-8 flex-start justify-around'>
+           <div className='w-full md:w-2/3 lg:w-2/5' >
                <img src="https://d2d8wwwkmhfcva.cloudfront.net/800x/d2lnr5mha7bycj.cloudfront.net/product-image/file/primary_fecfd990-3741-4913-9bf4-32f6d816782b.jpeg" 
                alt="productname" 
                classname='w-full h-full'/>
