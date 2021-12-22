@@ -2,6 +2,10 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 import Rating from 'react-rating-stars-component'
 
+// component
+import StarRating from '../components/StarRating';
+import data from '../data';
+
 const ProductPage=()=>{
 const ratingChanged=(newRating)=>{
     console.log(newRating)
@@ -17,11 +21,7 @@ const ratingChanged=(newRating)=>{
            </div>
            <div className='lg:w-1/3'>
                <h1 className='font-bold text-xl w-'>Lacoste Slim shirt</h1>
-               <Rating
-                  count={5}
-                  onChange={ratingChanged}
-                  size={24}
-                  activeColor="#ffd700"/>
+              <StarRating/>
                <span className='text-indigo-600'>1 reviews</span>
                <p>Price:$120</p>
                <p>Description:This is a great product...</p>
@@ -30,11 +30,7 @@ const ratingChanged=(newRating)=>{
            <div className='w-60 border-2 h-64 p-3 rounded-md'>
                <p>Seller</p>
                <h2 className='text-blue-900 font-bold'>Puma</h2>
-               <Rating
-                  count={5}
-                  onChange={ratingChanged}
-                  size={24}
-                  activeColor="#ffd700"/>
+               <StarRating />
                <span className='text-indigo-600'>120 reviews</span>
                <div className='flex justify-between'>
                    <p>Price</p>

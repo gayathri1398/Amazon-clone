@@ -33,7 +33,7 @@ const data ={
             brand:"Lacoste",
             countInStock:0,
             description:"high quality product",
-            rating: 4.2,
+            rating: 3.5,
             numOfReviews:6
         },
         {
@@ -45,7 +45,7 @@ const data ={
             brand:"Nike",
             countInStock:10,
             description:"high quality product",
-            rating: 4.3,
+            rating: 4,
             numOfReviews:8
         },
         {
@@ -57,7 +57,7 @@ const data ={
             brand:"Puma",
             countInStock:17,
             description:"high quality product",
-            rating: 3.8,
+            rating: 5,
             numOfReviews:5
         },
         {

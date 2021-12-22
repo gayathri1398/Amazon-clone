@@ -2,6 +2,8 @@ import React from 'react';
 import ReactStars from "react-rating-stars-component";
 import {Link} from 'react-router-dom'
 
+// components
+import StarRating from './StarRating';
 
 const ProductCard = ({product}) => {
       const ratingChanged=(newRating)=>{
@@ -18,12 +20,13 @@ const ProductCard = ({product}) => {
         </div>
          <div className='p-2'>
          <h2 className='mt-2 font-light text-xl'>{product.name}</h2>
-          <ReactStars
+          {/* <ReactStars
                  count={5}
                  onChange={ratingChanged}
                  size={24}
                  activeColor="#ffd700"
-             />
+             /> */}
+           <StarRating rating={product.rating}/>
           <p className='font-bold'>{`${product.price}`}</p>
          </div>
      </div>
