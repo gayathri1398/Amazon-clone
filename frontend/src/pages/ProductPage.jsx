@@ -1,30 +1,35 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
-import Rating from 'react-rating-stars-component'
+import {Link} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 // component
 import StarRating from '../components/StarRating';
 import data from '../data';
 
-const ProductPage=()=>{
-const ratingChanged=(newRating)=>{
-    console.log(newRating)
-}
 
+const ProductPage=({rating, ...props})=>{
+//    const{_id} = useParams();
+//    console.log(_id);
+   const product = data.products.find((product)=>Number(product._id)=== Number(props.match.params._id));
+  
+
+   if(!product){
+       return <div>Sorry! Product is not found</div>
+   }
     return<>
         <Link to ="/" className='text-gray-500 hover:text-indigo-900'>Back to results</Link>
        <div className='flex flex-col gap-4 w-full h-full px-4 lg:flex-row mt-8 flex-start justify-around'>
            <div className='w-full md:w-2/3 lg:w-2/5' >
-               <img src="https://d2d8wwwkmhfcva.cloudfront.net/800x/d2lnr5mha7bycj.cloudfront.net/product-image/file/primary_fecfd990-3741-4913-9bf4-32f6d816782b.jpeg" 
+               <img src={product.imgprod} 
                alt="productname" 
                classname='w-full h-full'/>
            </div>
            <div className='lg:w-1/3'>
-               <h1 className='font-bold text-xl w-'>Lacoste Slim shirt</h1>
-              <StarRating/>
-               <span className='text-indigo-600'>1 reviews</span>
-               <p>Price:$120</p>
-               <p>Description:This is a great product...</p>
+               <h1 className='font-bold text-xl w-'>{product.name}</h1>
+              <StarRating rating={product.rating}/>
+               <span className='text-indigo-600'>{product.numOfReviews} reviews</span>
+               <p>Price:${product.price}</p>
+               <p>Description: {product.description}</p>
            
                </div>  
            <div className='w-60 border-2 h-64 p-3 rounded-md'>
@@ -38,7 +43,11 @@ const ratingChanged=(newRating)=>{
                </div>
                <div className='flex justify-between'>
                    <p>Status</p>
-                   <span className='text-green-500'>InStock</span> 
+                   {product.countInStock>0? (
+                          <span className='text-green-500'>InStock</span> ):
+                          <span className='text-red-500'>Unavailable</span>
+                   }
+                
                </div>
                <div className='flex justify-between'>
                    <p>Qty</p>

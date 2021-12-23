@@ -2,12 +2,7 @@ import React from 'react';
 import {AiOutlineStar,AiFillStar} from 'react-icons/ai';
 import {IoMdStarHalf} from 'react-icons/io'
 
-const star=()=>{
-  const countInStock= 5;
-  for (let i = 0; i < countInStock.length; i++) {
-    i += countInStock[i] ;
-  }
-}
+
 const StarRating = ({rating}) => {
     return (
         <div className='flex text-xl py-2 text-yellow-500'>
