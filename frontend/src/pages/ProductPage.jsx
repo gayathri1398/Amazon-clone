@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
@@ -7,19 +7,17 @@ import StarRating from '../components/StarRating';
 import data from '../data';
 
 
+
 const ProductPage=({rating, ...props})=>{
-//    const{_id} = useParams();
-//    console.log(_id);
+  
    const product = data.products.find((product)=>Number(product._id)=== Number(props.match.params._id));
   
-
-   if(!product){
-       return <div>Sorry! Product is not found</div>
-   }
     return<>
+    
         <Link to ="/" className='text-gray-500 hover:text-indigo-900'>Back to results</Link>
-       <div className='flex flex-col gap-4 w-full h-full px-4 lg:flex-row mt-8 flex-start justify-around'>
-           <div className='w-full md:w-2/3 lg:w-2/5' >
+        
+          <div className='flex flex-col gap-4 w-full h-full px-4 lg:flex-row mt-8 flex-start justify-around'>
+           <div className='w-full md:w-2/3 lg:w-2/5 lg:h-screen' >
                <img src={product.imgprod} 
                alt="productname" 
                classname='w-full h-full'/>
@@ -57,6 +55,8 @@ const ProductPage=({rating, ...props})=>{
            </div> 
              
        </div>
+       
+       
     </>
-}
+ }
 export default ProductPage;
