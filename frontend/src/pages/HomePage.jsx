@@ -15,12 +15,17 @@ const HomePage =()=>{
 
     useEffect(()=>{
       const fetchData=async()=>{
+       try {
         setLoading(true);
-         const {data} = await axios.get('/api/products');
-         setLoading(false);
-         setProducts(data);
+        const {data} = await axios.get('/api/products');
+        setLoading(false);
+        setProducts(data);
 
-        //  console.log(data)
+       } catch (err) {
+         setError(err.message);
+         setLoading(false);
+       }
+      
       };
       fetchData();
        
@@ -28,6 +33,7 @@ const HomePage =()=>{
     console.log(products);
     return <>
     {loading? <Loading></Loading>:
+        error? <MessageBox>{error}</MessageBox>:
         <div class="m-8 flex justify-between flex-wrap md:m-16">
         {products?.map((product)=>
         <ProductCard key={product._id} product={product}/>
