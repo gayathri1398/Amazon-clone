@@ -12,13 +12,13 @@ import MessageBox from '../components/MessageBox';
 import { listProducts } from '../Redux/actions/productAction';
 
 const HomePage =()=>{
-    const[products,setProducts] =useState([]);
-    const[loading,setLoading] =useState(false);
-    const[error,setError] =useState(false);
+    // const[products,setProducts] =useState([]);
+    // const[loading,setLoading] =useState(false);
+    // const[error,setError] =useState(false);
     
      const dispatch = useDispatch()
-    //  const productList = useSelector(state => state.productList);
-    //  const {loading,error,products} = productList
+     const productList = useSelector(state => state.productList);
+     const {loading,error,products} = productList
 
   // console.log(productList)
 
@@ -40,8 +40,12 @@ const HomePage =()=>{
        
     // },[])
 
+    // useEffect(()=>{
+    //   dispatch(listProducts()).then ((data)=> setProducts(data.payload))
+    // },[])
+
     useEffect(()=>{
-      dispatch(listProducts()).then ((data)=> setProducts(data.payload))
+      dispatch(listProducts())
     },[])
     
     return <>

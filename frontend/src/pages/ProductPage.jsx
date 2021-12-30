@@ -1,14 +1,26 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+
 
 // component
 import StarRating from '../components/StarRating';
 import data from '../data';
 
-
+// actions
+import { productDetails } from '../Redux/actions/productAction';
 
 const ProductPage=({rating, ...props})=>{
+    const dispatch = useDispatch();
+    const{_id}= useParams();
+    console.log(_id)
+
+
+    useEffect(() => {
+       dispatch(productDetails(_id)).then((data)=>console.log(data))
+    }, [_id])
   
    const product = data.products.find((product)=>Number(product._id)=== Number(props.match.params._id));
   
