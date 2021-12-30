@@ -3,15 +3,16 @@ import axios from 'axios';
 
 //components
 import ProductCard from '../components/productcard';
-import data from '../data';
+// import data from '../data';
 import Loading from '../components/Loading';
 import MessageBox from '../components/MessageBox';
 
 
 const HomePage =()=>{
-    const[products,setProducts] =useState([]);
-    const[loading,setLoading] =useState(false);
-    const[error,setError] =useState(false);
+    // const[products,setProducts] =useState([]);
+    // const[loading,setLoading] =useState(false);
+    // const[error,setError] =useState(false);
+    
 
     useEffect(()=>{
       const fetchData=async()=>{
@@ -32,7 +33,7 @@ const HomePage =()=>{
     },[])
     console.log(products);
     return <>
-    {loading? <Loading></Loading>:
+    {loading? <Loading/>:
         error? <MessageBox>{error}</MessageBox>:
         <div class="m-8 flex justify-between flex-wrap md:m-16">
         {products?.map((product)=>
