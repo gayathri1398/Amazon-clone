@@ -4,7 +4,7 @@ const INITIAL_STATE={
     products:[],
     loading:true
 }
-export const productListReducer =(state=INITIAL_STATE,action)=>{
+export const productListReducer =(state= INITIAL_STATE,action)=>{
  switch(action.type){
      case PRODUCT_LIST_REQUEST:
          return{
@@ -13,12 +13,12 @@ export const productListReducer =(state=INITIAL_STATE,action)=>{
      case PRODUCT_LIST_SUCCESS:
          return{
              loading:false,
-             payload:action.payload
+             products:action.payload
          }
     case PRODUCT_LIST_FAILURE:
         return {
             loading:false,
-            payload:action.payload
+            error:action.payload
         }
     default:
         return{

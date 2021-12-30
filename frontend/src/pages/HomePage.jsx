@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
+import {useDispatch,useSelector} from 'react-redux'
 
 //components
 import ProductCard from '../components/productcard';
@@ -7,31 +8,42 @@ import ProductCard from '../components/productcard';
 import Loading from '../components/Loading';
 import MessageBox from '../components/MessageBox';
 
+// actions
+import { listProducts } from '../Redux/actions/productAction';
 
 const HomePage =()=>{
-    // const[products,setProducts] =useState([]);
-    // const[loading,setLoading] =useState(false);
-    // const[error,setError] =useState(false);
+    const[products,setProducts] =useState([]);
+    const[loading,setLoading] =useState(false);
+    const[error,setError] =useState(false);
     
+     const dispatch = useDispatch()
+    //  const productList = useSelector(state => state.productList);
+    //  const {loading,error,products} = productList
+
+  // console.log(productList)
+
+    // useEffect(()=>{
+    //   const fetchData=async()=>{
+    //    try {
+    //     setLoading(true);
+    //     const {data} = await axios.get('/api/products');
+    //     setLoading(false);
+    //     setProducts(data);
+
+    //    } catch (err) {
+    //      setError(err.message);
+    //      setLoading(false);
+    //    }
+    //   dispatch()
+    //   };
+    //   fetchData();
+       
+    // },[])
 
     useEffect(()=>{
-      const fetchData=async()=>{
-       try {
-        setLoading(true);
-        const {data} = await axios.get('/api/products');
-        setLoading(false);
-        setProducts(data);
-
-       } catch (err) {
-         setError(err.message);
-         setLoading(false);
-       }
-      
-      };
-      fetchData();
-       
+      dispatch(listProducts()).then ((data)=> setProducts(data.payload))
     },[])
-    console.log(products);
+    
     return <>
     {loading? <Loading/>:
         error? <MessageBox>{error}</MessageBox>:
