@@ -29,7 +29,7 @@ export const productListReducer =(state= INITIAL_STATE,action)=>{
  }
 }
 
-export const productDetailsReducer =(state=INITIAL_STATE,action)=>{
+export const productDetailsReducer =(state={specificproduct:{},loading:true},action)=>{
    switch (action.type){
        case PRODUCT_DETAILS_REQUEST:
            return{

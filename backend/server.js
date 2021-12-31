@@ -23,13 +23,17 @@ Access        public
 Method        GET
 */
 app.get("/api/products/:_id",(req,res)=>{
-    const specificProduct = data.products.find((x)=>x._id===req.params._id);
+    
+    const specificProduct = data.products.find((x) => Number(x._id)===Number(req.params._id));
+ 
     if(specificProduct){
-        res.send(specificProduct)
+        res.send(specificProduct);
     }else{
         res.status(404).send({message:"Sorry!Product not found!!"})
     }
 });
+
+
 
 app.get("/", (req,res)=> res.json({"message":"connected succesfully!! you have done it!!!"}))
 
